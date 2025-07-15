@@ -82,16 +82,36 @@ src/
 
 ## 📡 Endpoints Principais
 
-- `GET /health` – Health check da aplicação
-- `GET /rooms` – Lista todas as salas disponíveis
+- **GET /health**  
+  Verifica se a aplicação está online.
 
-## 🎯 Funcionalidades
+- **GET /rooms**  
+  Lista todas as salas disponíveis.
 
-- Gerenciamento de salas (rooms)
-- API REST com validação de schemas
-- Integração com banco de dados PostgreSQL
-- Configuração de ambiente validada
-- CORS habilitado para desenvolvimento
+- **POST /rooms**  
+  Cria uma nova sala.  
+  Corpo esperado:
+  ```json
+  {
+    "name": "Room Name",
+    "description": "Room Description"
+  }
+  ```
+
+- **GET /rooms/:roomId/questions**  
+  Lista as perguntas de uma sala específica.
+
+- **POST /rooms/:roomId/questions**  
+  Cria uma nova pergunta em uma sala.  
+  Corpo esperado:
+  ```json
+  {
+    "question": "Sua pergunta aqui"
+  }
+  ```
+
+- **POST /rooms/:roomId/audio**  
+  Faz upload de um áudio para uma sala (multipart/form-data, campo: file).
 
 ---
 
