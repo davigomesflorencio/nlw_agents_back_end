@@ -10,6 +10,8 @@ import { getRoomsRoute } from "./http/routes/get-rooms.ts";
 import { createRoomRoute } from "./http/routes/create-room.ts";
 import { getRoomsQuestionsRoute } from "./http/routes/get-rooms-questions.ts";
 import { createQuestionRoute } from "./http/routes/create-question.ts";
+import { uploadAudioRoute } from "./http/routes/upload-audio.ts";
+import fastifyMultipart from "@fastify/multipart";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -18,6 +20,7 @@ const app = fastify().withTypeProvider<ZodTypeProvider>();
 // });
 
 app.register(fastifyCors, { origin: "*" });
+app.register(fastifyMultipart);
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
@@ -30,6 +33,7 @@ app.register(getRoomsRoute);
 app.register(createRoomRoute);
 app.register(getRoomsQuestionsRoute);
 app.register(createQuestionRoute);
+app.register(uploadAudioRoute);
 
 app
   .listen({

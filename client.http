@@ -31,17 +31,17 @@ Content-Type: application/json
 
 ###
 
-# CREATE ROOMS QUESTIONS
-# @name createRoomQuestion
+# GET ROOMS QUESTIONS
+# @name getRoomQuestions
 GET {{baseUrl}}/rooms/{{roomId}}/questions
 
 ###
 
 # CREATE QUESTIONS
 # @name createQuestion
-POST {{baseUrl}}/rooms/{{roomId}}/questions
+POST {{baseUrl}}/rooms/6f05315b-1442-4bfa-af46-cf39d951f59e/questions
 Content-Type: application/json
 
 {
-  "question": "What is your question?"
+  "question": "O que é um Kotlin?"
 }
